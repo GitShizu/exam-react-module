@@ -12,7 +12,10 @@ export default ({onSearch})=>{
             onKeyUp={e=> e.key=== "Enter" && onSearch(inputValue)}
             />
             <button
-            onClick={()=>onSearch(inputValue)}
+            onClick={()=>{
+                onSearch(inputValue)
+                setInputValue('')
+            }}
             >Find</button>
         </div>
     )
