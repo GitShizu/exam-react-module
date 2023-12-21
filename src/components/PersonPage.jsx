@@ -16,7 +16,7 @@ export default ()=>{
         })
     },[id])
     const age= ()=>{
-        return(2023-Number(person.birthday.substring(0,5)))
+        return(Number('2023')-Number(person.birthday.substring(0,5)))
     }
     return(
 <section className="person-page-container">
@@ -25,7 +25,7 @@ export default ()=>{
     :
         <article className="person-page">
             <figure>
-                <img src={p.profile_path} alt={`${p.name}'s picture`} />
+                <img src={`https://image.tmdb.org/t/p/original/${person.profile_path}`} alt={`${person.name}'s picture`} />
             </figure>
             <div className="person-page-info">
                 <p><b>Name:</b>{person.name}</p>

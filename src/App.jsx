@@ -9,12 +9,6 @@ import { useEffect } from 'react'
 const apiKey = import.meta.env.VITE_API_KEY;
 function App() {
 
-  useEffect(()=>{
-    fetch(`https://api.themoviedb.org/3/person/6193?api_key=${apiKey}`)
-        .then(response=>response.json())
-        .then(obj=>console.log(obj))
-  },[])
-
   return (
     <section id='app-container'>
 

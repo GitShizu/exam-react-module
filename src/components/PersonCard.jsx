@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default ({
     id,
     name,
@@ -8,7 +10,7 @@ export default ({
     imagePath
 }) => {
     return (
-        <div className="card">
+        <Link className="card" to={`/person/${id}`}>
             <div>
                 <h3>{name}</h3><span>{sex === 1 ? ('F') : ('M')}</span>
                 <figure>
@@ -24,6 +26,6 @@ export default ({
                     ))}
                 </ul>
             </div>
-        </div>
+        </Link>
     )
 }
