@@ -1,6 +1,8 @@
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
 
-export default ()=>{
+export default ({lang,changeLang})=>{
+
     return(
         <nav id="navbar">
             <menu>

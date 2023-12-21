@@ -2,23 +2,22 @@ import { useState } from "react";
 import SearchBar from "./SearchBar"
 import PersonCard from "./PersonCard";
 const apiKey = import.meta.env.VITE_API_KEY;
-export default () => {
+
+export default ({ lang }) => {
     const [persons, setPersons] = useState()
     const [error, setError] = useState()
     const searchPerson = (searchValue) => {
+        
         const URLParams = new URLSearchParams({
             query: searchValue,
             api_key: apiKey,
             include_adult: 'false',
-            language: 'en-US',
+            language: lang,
             page: 1
         })
         fetch(`https://api.themoviedb.org/3/search/person?${URLParams.toString()}`)
             .then(response => response.json())
-            .then(obj => {
-                console.log(obj);
-                setPersons(obj.results)
-            })
+            .then(obj => setPersons(obj.results))
             .catch(er => {
                 console.error(er)
                 setError('Whoops! Something went wrong, please try again')
@@ -43,7 +42,7 @@ export default () => {
                                     sex={p.gender}
                                     popularity={p.popularity}
                                     works={p.known_for.map(m => m.title)}
-                                    imagePath={p.profile_path} 
+                                    imagePath={p.profile_path}
                                 />
                             ))
                             :

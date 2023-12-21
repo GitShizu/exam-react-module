@@ -1,7 +1,69 @@
 #app-container{
+    padding: 1rem;
+    #navbar{
+        padding: 1.5rem 0;
+        background-color: rgba(46, 49, 49, 0.507);
+        menu{
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            li{
+                font-size: 1.25rem;
+                list-style-type: none;
+            }
+        }
+    }
     #home{
-        #card-container{
+        h2{
+            text-align: center;
+            padding:  1.5rem;
+            color: teal;
+        }
+        .card-container{
             display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    #about{
+        text-align: center;
+        padding: 2rem;
+    }
+    .card{
+        &>div:first-child{
+            height: 60px;
+            text-align: center;
+        }
+        &>div:last-child{
+            li{
+                margin-left: 1.25rem;
+            }
+            b{
+                color: teal;
+            }
+        }
+        background-color: rgba(46, 49, 49, 0.507);
+        padding: 0.5rem;
+    }
+    .card:hover{
+        background-color: rgba(69, 100, 102, 0.507)
+    }
+    #searchbar{
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input{
+            font-size: 1.5rem;
+        }
+    }
+    #search-page{
+        display: grid;
+        justify-content: center;
+        gap: 2rem;
+        .card-container{
+            display: grid;
+            gap: 1rem;
             grid-template-columns: repeat(4, 1fr);
         }
     }

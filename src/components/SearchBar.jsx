@@ -6,7 +6,10 @@ export default ({onSearch})=>{
         <div id="searchbar">
             <input type="text" 
             value={inputValue}
-            onChange={e=>setInputValue(e.target.value)}
+            onChange={e=>{
+                setInputValue(e.target.value)
+            }}
+            onKeyUp={e=> e.key=== "Enter" && onSearch(inputValue)}
             />
             <button
             onClick={()=>onSearch(inputValue)}

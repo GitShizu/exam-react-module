@@ -3,20 +3,24 @@ import { useState } from "react"
 import PersonCard from "./PersonCard";
 const apiKey = import.meta.env.VITE_API_KEY;
 
-export default () => {
+export default ({ lang }) => {
 
     const [persons, setPersons] = useState([])
     const [error, setError] = useState()
+    const URLParams = new URLSearchParams({
+        api_key: apiKey,
+        language: lang
+    })
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/trending/person/day?api_key=${apiKey}`)
+        fetch(`https://api.themoviedb.org/3/trending/person/day?${URLParams.toString()}`)
             .then(response => response.json())
-            .then(obj =>setPersons(obj.results))
+            .then(obj => {setPersons(obj.results)})
             .catch(er => {
                 console.error(er)
                 setError('Whoops! Something went wrong, please try again')
             })
     }, [])
-
+    
     return (
         <section id="home">
             <h2>Today's most popular people</h2>
@@ -26,6 +30,7 @@ export default () => {
                     :
                     <>{persons.map(p => (
                         <PersonCard
+                            lang={lang}
                             key={p.id}
                             id={p.id}
                             name={p.name}
