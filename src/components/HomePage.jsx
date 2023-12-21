@@ -11,9 +11,8 @@ export default () => {
         fetch(`https://api.themoviedb.org/3/trending/person/day?api_key=${apiKey}`)
             .then(response => response.json())
             .then(obj => {
-                console.log(obj);
-                setPersons(obj.results)
-            })
+                console.log(obj.results)
+                setPersons(obj.results)})
             .catch(er => {
                 console.error(er)
                 setError('Whoops! Something went wrong, please try again')
