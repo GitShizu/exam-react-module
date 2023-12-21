@@ -1,0 +1,8 @@
+#app-container{
+    #home{
+        #card-container{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
